@@ -50,5 +50,28 @@ function getDay(date) { // get day number from 0 (monday) to 6 (sunday)
 //    elem.style.align = "right";
 //    elem.style.verticalAlign = "top";
 //}
+ 
+//createCalendar(calendar, 2021, 10);
 
-createCalendar(calendar, 2021, 10);
+function saveFile(){
+  alert('test');
+  let FileSaver = require('file-saver');
+  let blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+  FileSaver.saveAs(blob, "hello world.txt");
+}
+
+function download(filename) {
+  var element = document.createElement('a');
+  text = document.getElementById("plan-inp").value;
+  date = document.getElementById("due-date").value;
+  
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(date + ": " + text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}

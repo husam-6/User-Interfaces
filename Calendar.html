@@ -22,6 +22,19 @@
   <div id="planner">
     <div class=underline>
       <h1> Planner </h1>
+
+      
+    </div>  
+    
+
+    <div id="inp">
+      <form class="form" id="myForm">
+        <label>+ Add an Assignment </label>
+        <input type="text" name="plan-inp" id="plan-inp" value="Assignment Name" size="20">
+        <input type="text" name="due-date" id="due-date" value="Due Date" size="20">
+        <input type="submit" onclick="download('data.txt', 'kalb')" name=Update>
+        <script src="js/FileSaver.js"></script>
+      </form>
     </div>
   </div>
   
@@ -39,4 +52,5 @@
   </div>
 
 </body>
+
 </html>
