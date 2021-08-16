@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&display=swap');
+  </style> 
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="initial-scale=1.0"/>
+  <title>Schedule Planner</title>
+</head>
+
+<body id="container">
+  <script src="main.js" defer></script>
+
+  <div id="title"> 
+    <h1>Homies Schedule</h1>
+  </div>
+
+  <div id="planner">
+    <div class=underline>
+      <h1> Planner </h1>
+    </div>  
+
+    <div id="inp">
+      <form class="form" id="myForm">
+        <label>+ Add an Assignment </label>
+        <input type="text" name="plan-inp" id="plan-inp" placeholder="Assignment Name" size="20">
+        <input type="text" name="due-date" id="due-date" placeholder="Due Date" size="20">
+        <input type="submit" onsubmit="saveFile()" name=Update>
+      </form>
+    </div>
+  </div>
+  
+  <div id="announcements">
+    <div class=underline>
+      <h1> Announcements </h1>
+    </div>
+  </div>
+  
+  <div id="calendar">
+   <script type="text/javascript" src="../src/calendar.js"></script>
+    <script language="javascript">
+       createCalendar(calendar, 2021, 10);
+    </script> 
+  </div>
+
+</body>
+
+</html>
