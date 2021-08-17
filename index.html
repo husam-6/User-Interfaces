@@ -3,7 +3,7 @@
 
 <head>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&family=Source+Code+Pro:wght@300&display=swap');
   </style> 
   <meta charset="UTF-8"/>
   <meta name="viewport"
@@ -12,13 +12,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body id="container">
+<body id="container" >
 
   <div id="title"> 
     <h1>Homies Schedule</h1>
   </div>
-
-  <div id="planner">
+  <div id="planner" class='fade'>
     <div class=underline>
       <h1> Planner </h1>
     </div>  
@@ -29,7 +28,7 @@
       </u1>
     </div>
     
-    <div id="inp">
+    <div id="inp" class='fade'>
       <form class="form" id="myForm">
         <label>+ Add an Assignment </label>
         <input type="text" class="due-date" placeholder="Due Date - MM/DD/YY" size="20">
@@ -42,7 +41,7 @@
 
   </div>
   
-  <div id="announcements">
+  <div id="announcements" class='fade'>
     <div class=underline>
       <h1> Announcements </h1>
     </div>
@@ -53,7 +52,7 @@
       </u1>
     </div>
 
-    <div id="announce">
+    <div id="announce" class='fade'>
       <form class="announce-form" id="myForm">
         <label>+ Add an Announcement</label>
         <input type="text" class="date" placeholder="Date" size="20">
@@ -65,7 +64,7 @@
     
   </div>
   
-  <div id="calendar">
+  <div id="calendar" class='fade'>
     <script type="text/javascript" src="js/calendar.js"></script>
     <script language="javascript">
       createCalendar(calendar, 2021, 10);
