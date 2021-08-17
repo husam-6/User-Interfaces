@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&display=swap');
+  </style> 
+  <meta charset="UTF-8"/>
+  <meta name="viewport"
+  content="width-device-width, initial-scale=1.0"/>
+  <title>Schedule Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="container">
+
+  <div id="title"> 
+    <h1>Homies Schedule</h1>
+  </div>
+
+  <div id="planner">
+    <div class=underline>
+      <h1> Planner </h1>
+    </div>  
+    
+    <div>
+      <u1 class="items">
+
+      </u1>
+    </div>
+    
+    <div id="inp">
+      <form class="form" id="myForm">
+        <label>+ Add an Assignment </label>
+        <input type="text" class="due-date" placeholder="Due Date - MM/DD/YY" size="20">
+        <input type="text" class="plan-inp" placeholder="Assignment Name" size="20">
+        <button type="submit" class="add-button">Update</button>
+      </form>
+    </div>
+    
+    <script type="text/javascript" src="js/planner.js" defer></script>
+
+  </div>
+  
+  <div id="announcements">
+    <div class=underline>
+      <h1> Announcements </h1>
+    </div>
+
+    <div>
+      <u1 class="announce-items">
+
+      </u1>
+    </div>
+
+    <div id="announce">
+      <form class="announce-form" id="myForm">
+        <label>+ Add an Announcement</label>
+        <input type="text" class="date" placeholder="Date" size="20">
+        <input type="text" class="announcement" placeholder="Announcement" size="20">
+        <button type="submit" class="announce-button">Update</button>
+      </form>
+    </div>
+    <script type="text/javascript" src="js/announcements.js" defer></script>
+    
+  </div>
+  
+  <div id="calendar">
+    <script type="text/javascript" src="js/calendar.js"></script>
+    <script language="javascript">
+      createCalendar(calendar, 2021, 10);
+    </script>
+  </div>
+
+</body>
+
+</html>

@@ -95,7 +95,7 @@ h1{
 
 #inp{
     float: bottom; 
-    margin-top: 1000px;
+    margin-top: 1100px;
 }
 
 form{
@@ -107,4 +107,29 @@ input{
     text-align: center;
     color: black;
     flex-grow: 1;
+}
+
+.item{
+    color: #66FcF1
+}
+
+.checked { 
+    text-decoration: line-through;
+}
+
+#announce{
+    float: bottom; 
+    margin-top: 300px;
+}
+
+.items{
+    float: left; 
+    margin-left: 40px;
+    text-align: left;
+}
+
+.announce-items{
+    float: left; 
+    margin-left: 40px; 
+    text-align: left; 
 }
