@@ -122,7 +122,7 @@ input{
     text-align: left; 
 }
 
- :root {
+ /* :root {
   --bg-color: #0B0C10;
   --typewriterSpeed: 1.5s;
   --typewriterCharacters: 15;
@@ -141,7 +141,7 @@ input{
     height: 48px; 
     margin: auto; 
 }
-/* 
+
 #title::before,
 #title::after {
   content: "";
@@ -234,6 +234,7 @@ ul li {
     background: #6b6e70;
     color: #fff;
     text-decoration: line-through;
+    text-decoration-color:white; 
     border-color: white; 
   }
   
@@ -242,6 +243,7 @@ ul li {
     content: '';
     position: absolute;
     border-color: #fff;
+    border-color:rgb(1, 207, 1);
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 30px;
@@ -252,6 +254,20 @@ ul li {
     color: black; 
  
   }
+  .strikeout {
+  font-size: 4em;
+  line-height: 1em;
+  position: relative;
+}
+.strikeout::after {
+  border-bottom: 0.125em solid red;
+  content: "";
+  left: 0;
+  margin-top: calc(0.125em / 2 * -1);
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
 
   .delete-button{
       font-family: IBM Plex Sans;
