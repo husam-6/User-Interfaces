@@ -8,6 +8,16 @@ const todoItemsList = document.querySelector('.items');
 
 let items = [];
 
+document.addEventListener('click', function(event){
+  if(event.target.classList.contains('sort-button')){
+    alert('test')
+    items.sort(function(a,b){
+      return new Date(a.date) - new Date(b.date);
+    });
+    addToLocalStorage(items);
+  }
+});
+
 todoItemsList.addEventListener('click', function(event){
   if(event.target.tagName === 'LI'){
     event.target.classList.toggle('checked');
