@@ -276,7 +276,21 @@ ul li {
   }
 
 
-
+input[type=text]{
+    width:fit-content;
+    border:1px solid #66FcF1;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  
+  input[type=text]:focus{
+    border-color: #66FcF1;
+    box-shadow:0 0 8px 0 #66FcF1;
+  }
 
 /*this is the css stuff for dragging the elements*/
 
