@@ -10,7 +10,7 @@ let items = [];
 
 document.addEventListener('click', function(event){
   if(event.target.classList.contains('sort-button')){
-    alert('test')
+    //alert('test')
     items.sort(function(a,b){
       return new Date(a.date) - new Date(b.date);
     });
@@ -92,7 +92,7 @@ function getFromLocalStorage() {
 }
 
 // toggle the value to completed and not completed
-function toggle(id) {
+function toggle1(id) {
   //alert('test')
   for(let i = 0; i<items.length; i++){
     if(items[i].id == id){
@@ -120,7 +120,7 @@ todoItemsList.addEventListener('click', function(event) {
   // check if the event is on checkbox
 
   if (event.target && event.target.nodeName === 'LI'){
-    toggle(event.target.id);  // Check if the element is a LI
+    toggle1(event.target.id);  // Check if the element is a LI
   }
 
   // check if that is a delete-button
@@ -139,7 +139,7 @@ let index;
 let indexDrop;
 let list;
 
-document.addEventListener("dragstart", ({target}) => {
+todoItemsList.addEventListener("dragstart", ({target}) => {
     dragged = target;
     id = target.id;
     list = target.parentNode.children;
@@ -150,11 +150,11 @@ document.addEventListener("dragstart", ({target}) => {
     }
 });
 
-document.addEventListener("dragover", (event) => {
+todoItemsList.addEventListener("dragover", (event) => {
   event.preventDefault();
 });
 
-document.addEventListener("drop", ({target}) => {
+todoItemsList.addEventListener("drop", ({target}) => {
   if(target.className == "item" && target.id !== id) {
     let test = [...list];
     let second = test.indexOf(target)

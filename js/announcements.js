@@ -8,6 +8,17 @@ const announceList = document.querySelector('.announce-items');
 
 let announceItems = [];
 
+document.addEventListener('click', function(event){
+  if(event.target.classList.contains('sort-button2')){
+    //alert('test')
+    announceItems.sort(function(a,b){
+      return new Date(a.date) - new Date(b.date);
+    });
+    addToLocalStorage2(announceItems);
+  }
+});
+
+
 announceList.addEventListener('click', function(event){
   if(event.target.tagName === 'LI'){
     event.target.classList.toggle('checked');
@@ -48,10 +59,10 @@ function renderItems2(items){
     li.setAttribute('class', 'item');
     li.setAttribute('data-key', items[i].id);
     li.setAttribute('id', items[i].id);
-    //li.setAttribute('draggable', true);
     if(items[i].completed === true){
       li.classList.add('checked');
     }
+    li.setAttribute('draggable', true);
     
     li.innerHTML = `
     ${items[i].date} &emsp; ${items[i].name}
@@ -117,4 +128,60 @@ announceList.addEventListener('click', function(event) {
     window.localStorage.removeItem(event.target.parentElement);
   }
 });
+
+
+let dragged2;
+let id2;
+let index2;
+let indexDrop2;
+let list2;
+
+announceList.addEventListener("dragstart", ({target}) => {
+    dragged2 = target;
+    id2 = target.id;
+    list2 = target.parentNode.children;
+    for(let i = 0; i < list2.length; i += 1) {
+      if(list2[i] === dragged2){
+        index2 = i;
+      }
+    }
+});
+
+announceList.addEventListener("dragover", (event) => {
+  event.preventDefault();
+});
+
+announceList.addEventListener("drop", ({target}) => {
+  if(target.className == "item" && target.id !== id2) {
+    let test2 = [...list2];
+    let second2 = test2.indexOf(target)
+    //alert(index);
+    //alert(second);
+    dragged2.remove( dragged2 );
+    for(let i = 0; i < list2.length; i++) {
+      if(list2[i] === target){
+        indexDrop2 = i;
+      }
+    }
+    // alert(index);
+    //alert(indexDrop2);
+    //console.log(ind2ex, indexDrop2);
+    if(index2 > indexDrop2) {
+      target.before( dragged2 );
+    } 
+    else {
+      target.after( dragged2 );
+    }
+
+    announceItems = swapItems2(index2, second2);
+    //addToLocalStorage2(announceItems);
+  }
+});
+
+function swapItems2(first, second){
+  let [tmp] = announceItems.splice(first,1); 
+  announceItems.splice(second,0, tmp);
+  return announceItems; 
+}
+
 
