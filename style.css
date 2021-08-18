@@ -40,6 +40,7 @@ th {
     height: fit-content; 
     min-height: 1160px; 
     width: auto; 
+    text-align: center; 
 }
 #announcements{
     grid-area: announcements; 
@@ -48,7 +49,7 @@ th {
     min-height : 500px; 
     width: 700px; 
     padding-bottom: 50px; 
-   
+    text-align: center; 
 }
 
 .border {
@@ -68,10 +69,6 @@ th {
     border : double; 
     border-color:#66FcF1;
     border-width: 1px; 
-}
-#planner { 
-    color: #66FcF1; 
-    text-align: center; 
 }
 
 
@@ -94,10 +91,10 @@ h1{
     margin-right: 10px;
     margin-top: -50px;
 }
-/* 
-form{
-    float: flex; 
-} */
+
+form {
+    margin-top: 30px; 
+}
 
 input{
     height: 40px;
@@ -125,7 +122,7 @@ input{
     text-align: left; 
 }
 
- /* :root {
+ :root {
   --bg-color: #0B0C10;
   --typewriterSpeed: 1.5s;
   --typewriterCharacters: 15;
@@ -193,7 +190,7 @@ input{
     opacity: 1;
     transform: translateY(0);
   }
-} */
+}
 
 ul li {
     list-style-type: none;
@@ -257,25 +254,34 @@ ul li {
   }
 
   .delete-button{
+      font-family: IBM Plex Sans;
       float: right;
-      background-color: black; /* Blue background */
-      border: none; /* Remove borders */
+      background: none; 
       color: white; /* White text */
-      padding: 12px 16px; /* Some padding */
-      font-size: 16px; /* Set a font size */
       cursor: pointer; /* Mouse pointer on hover */
+      font-size: 30px; 
+      margin-top: -10px; 
+      border: none; 
   }
 
+  .delete-button:hover{
+    color: rgb(255, 0, 0);
+  }
+  .delete-button:active{
+  transform: translateY(2px);
+}
   .submit-button{
-        background-color: black; /* Blue background */
-        border: none; /* Remove borders */
-        color: white; /* White text */
-        padding: 12px 16px; /* Some padding */
-        font-size: 16px; /* Set a font size */
-        cursor: pointer; /* Mouse pointer on hover */
+    background: none; /* Blue background */
+    border: none; /* Remove borders */
+    color: #66FcF1; /* White text */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    transition: transform .2s
   }
 
-
+  .submit-button:hover {
+  transform: scale(1.4); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
 input[type=text]{
     width:fit-content;
     border:1px solid #66FcF1;
@@ -302,7 +308,7 @@ input[type=text]{
   border-radius: 3px;
   box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
 }
-.wrapper .item{
+/* .wrapper .item{
   color: #fff;
   display: flex;
   margin-bottom: 8px;
@@ -322,4 +328,4 @@ input[type=text]{
 .wrapper .item i{
   font-size: 18px;
   cursor: pointer;
-}
+} */

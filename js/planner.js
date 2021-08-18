@@ -28,10 +28,6 @@ function addItem(item, dueDate){
       completed: false
     };
   }
-  else{
-      alert("You must enter something!");
-      return;
-    }
   items.push(entry);
   addToLocalStorage(items);
 
@@ -52,6 +48,7 @@ function renderItems(items){
     li.setAttribute('class', 'item');
     li.setAttribute('id', items[i].id);
     li.setAttribute('data-key', items[i].id);
+    //li.setAttribute('draggable', true);
     if(items[i].completed === true){
       li.classList.add('checked');
     }
@@ -59,45 +56,11 @@ function renderItems(items){
     //add span to separate date and name 
     li.innerHTML = `
     ${items[i].date} ${items[i].name}
-    <button class='delete-button'>
-      <span class="button-icon"><i class="fas fa-trash"></i></span>
-    </button>`;
-
-    
-    /* li.innerHTML = `<div class="wrapper">
-      <div class="item">
-        <span class="text">
-    ${items[i].date} ${items[i].name}</span>
-    <i class="fas fa-bars"></i>
-    </div>
-    </div>
-    <script>
-      const dragArea = document.querySelector(".wrapper");
-      new Sortable(dragArea, {
-        animation: 350
-      });
-    </script>
-    <button class='delete-button'>
-      <span class="button-icon"><i class="fas fa-trash"></i></span>
-    </button>`; */
-   
+    <button class='delete-button'>-</button>`;   
     
     todoItemsList.append(li);
   }
 }
-
-/* <div class="wrapper">
-      <div class="item">
-        <span class="text">kalb</span>
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-    <script>
-      const dragArea = document.querySelector(".wrapper");
-      new Sortable(dragArea, {
-        animation: 350
-      });
-    </script> */
 
 // function to add todos to local storage
 function addToLocalStorage(items) {
@@ -156,4 +119,10 @@ todoItemsList.addEventListener('click', function(event) {
     deleteTodo(event.target.parentElement.getAttribute('data-key'));
     window.localStorage.removeItem(event.target.parentElement);
   }
+});
+
+//const dragArea = document.querySelector(".wrappe");
+let dragArea = document.getElementById("items")
+new Sortable(dragArea, {
+  animation: 350
 });

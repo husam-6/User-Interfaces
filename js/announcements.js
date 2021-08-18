@@ -28,10 +28,6 @@ function addAnnounce(item, dueDate){
       completed: false
     };
   }
-  else{
-    alert('You must enter something!');
-    return; 
-  }
   announceItems.push(entry);
   addToLocalStorage2(announceItems);
 
@@ -58,7 +54,7 @@ function renderItems2(items){
     
     li.innerHTML = `
     ${items[i].date} ${items[i].name}
-    <button class='delete-button'><i class="fa fa-trash" aria-hidden="true"></i></button>`;
+    <button class='delete-button'>-</button>`;
     
     announceList.append(li);
   }

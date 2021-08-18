@@ -3,7 +3,7 @@
 
 <head>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&family=Source+Code+Pro:wght@300&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&family=Source+Code+Pro:wght@300&display=swap');
   </style> 
   <meta charset="UTF-8"/>
   <meta name="viewport"
@@ -15,7 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
 </head>
 
-<body id="container" >
+<body id="container">
 
   <div id="title"> 
     <h1>Homies Schedule</h1>
@@ -34,12 +34,17 @@
       </form>
     </div>
 
-    <div>
+    <div class="wrappe">
       <ul class="items">
-        
       </ul>
+
+      <script type="text/javascript" src="js/sort-list.js">
+        window.addEventListener("DOMContentLoaded", function(){
+          slist("sortlist");
+        });
+      </script>
+
     </div>
-    
     
     <script type="text/javascript" src="js/planner.js" defer></script>
 
@@ -62,19 +67,17 @@
       <h1> Announcements </h1>
     </div>
 
-    <div id="form" class='fade'>
+    <div id="announcement-form" class='fade'>
       <form class="announce-form">
         <input type="text" class="date" placeholder="Date - MM/DD/YY" size="20">
         <input type="text" class="announcement" placeholder="Announcement" size="20" required>
         <button type="submit" class="submit-button"><i class="fa fa-plus" aria-hidden="true"></i>
-
         </button>
       </form>
     </div>
 
     <div>
       <ul class="announce-items">
-
       </ul>
     </div>
 
