@@ -10,6 +10,9 @@
   content="width-device-width, initial-scale=1.0"/>
   <title>Schedule Planner</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
 </head>
 
 <body id="container" >
@@ -17,49 +20,64 @@
   <div id="title"> 
     <h1>Homies Schedule</h1>
   </div>
-  <div id="planner" class='fade'>
+  <div id="planner" class='fade border'>
     <div class=underline>
       <h1> Planner </h1>
     </div>  
     
-    <div>
-      <u1 class="items">
-
-      </u1>
-    </div>
-    
-    <div id="inp" class='fade'>
-      <form class="form" id="myForm">
-        <label>+ Add an Assignment </label>
-        <input type="text" class="due-date" placeholder="Due Date - MM/DD/YY" size="20">
-        <input type="text" class="plan-inp" placeholder="Assignment Name" size="20">
-        <button type="submit" class="add-button">Update</button>
+    <div id="planner-form" class='fade'>
+      <form class="form">
+          <input type="text" class="due-date" placeholder="Due Date - MM/DD/YY" size="20">
+          <input type="text" class="plan-inp" placeholder="Assignment Name" size="20" required>
+          <button type="submit" class="submit-button"><i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
       </form>
     </div>
+
+    <div>
+      <ul class="items">
+        
+      </ul>
+    </div>
+    
     
     <script type="text/javascript" src="js/planner.js" defer></script>
 
+    <!-- <div class="wrapper">
+      <div class="item">
+        <span class="text">kalb</span>
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <script>
+      const dragArea = document.querySelector(".wrapper");
+      new Sortable(dragArea, {
+        animation: 350
+      });
+    </script> -->
   </div>
   
-  <div id="announcements" class='fade'>
+  <div id="announcements" class='fade border'>
     <div class=underline>
       <h1> Announcements </h1>
     </div>
 
-    <div>
-      <u1 class="announce-items">
+    <div id="form" class='fade'>
+      <form class="announce-form">
+        <input type="text" class="date" placeholder="Date - MM/DD/YY" size="20">
+        <input type="text" class="announcement" placeholder="Announcement" size="20" required>
+        <button type="submit" class="submit-button"><i class="fa fa-plus" aria-hidden="true"></i>
 
-      </u1>
-    </div>
-
-    <div id="announce" class='fade'>
-      <form class="announce-form" id="myForm">
-        <label>+ Add an Announcement</label>
-        <input type="text" class="date" placeholder="Date" size="20">
-        <input type="text" class="announcement" placeholder="Announcement" size="20">
-        <button type="submit" class="announce-button">Update</button>
+        </button>
       </form>
     </div>
+
+    <div>
+      <ul class="announce-items">
+
+      </ul>
+    </div>
+
     <script type="text/javascript" src="js/announcements.js" defer></script>
     
   </div>

@@ -36,29 +36,39 @@ th {
     grid-area: planner;
     background-color: #1F2833; 
     color: #66FcF1; 
-    border : double; 
-    border-color:#66FcF1; 
-    border-width: 1px; 
+    padding-bottom: 50px; 
+    height: fit-content; 
+    min-height: 1160px; 
+    width: auto; 
 }
 #announcements{
     grid-area: announcements; 
     background-color: #1F2833; 
     color: #66FcF1; 
-    border : double; 
-    border-color:#66FcF1; 
-    border-width: 1px; 
+    min-height : 500px; 
+    width: 700px; 
+    padding-bottom: 50px; 
+   
 }
+
+.border {
+    border : double; 
+    border-color:#66FcF1;
+    border-width: 1px; 
+    border-radius: 10px; 
+}
+
 #calendar{
     grid-area: calendar;
     background: #1F2833; 
     color: #C5C6C7; 
     font-family: 'Roboto Mono', monospace;
+    height : fit-content;
+    width: 700px; 
     border : double; 
     border-color:#66FcF1;
     border-width: 1px; 
 }
-
-
 #planner { 
     color: #66FcF1; 
     text-align: center; 
@@ -84,15 +94,10 @@ h1{
     margin-right: 10px;
     margin-top: -50px;
 }
-
-#inp{
-    float: bottom; 
-    margin-top: 1100px;
-}
-
+/* 
 form{
     float: flex; 
-}
+} */
 
 input{
     height: 40px;
@@ -102,31 +107,25 @@ input{
 }
 
 .item{
-    color: #66FcF1
+    color: white;
+    font-weight: bold; 
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .checked { 
     text-decoration: line-through;
 }
 
-#announce{
-    float: bottom; 
-    margin-top: 300px;
-}
-
 .items{
-    float: left; 
-    margin-left: 40px;
     text-align: left;
 }
 
 .announce-items{
-    float: left; 
-    margin-left: 40px; 
     text-align: left; 
 }
 
- :root {
+ /* :root {
   --bg-color: #0B0C10;
   --typewriterSpeed: 1.5s;
   --typewriterCharacters: 15;
@@ -194,4 +193,119 @@ input{
     opacity: 1;
     transform: translateY(0);
   }
+} */
+
+ul li {
+    list-style-type: none;
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 50px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    width: auto;
+    margin-left: 10px; 
+    margin-right: 50px; 
+    margin-bottom: 20px; 
+    top: 15px; 
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: solid; 
+    border-width: 2px; 
+    border-color: #75E6DA; 
+    border-radius: 10px;
+    background: #1a2835;
+  }
+  
+  /* Set all odd list items to a different color (zebra-stripes) */
+  /* ul li:nth-child(odd) {
+    background: #1F2833; 
+  } */
+
+  /* Darker background-color on hover */
+  ul li:hover {
+    background: lightblue;
+    color: black; 
+    font-weight: bold; 
+  }
+  
+  /* When clicked on, add a background color and strike out text */
+  ul li.checked {
+    background: #6b6e70;
+    color: #fff;
+    text-decoration: line-through;
+    border-color: white; 
+  }
+  
+  /* Add a "checked" mark when clicked on */
+  ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 30px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+    color: black; 
+ 
+  }
+
+  .delete-button{
+      float: right;
+      background-color: black; /* Blue background */
+      border: none; /* Remove borders */
+      color: white; /* White text */
+      padding: 12px 16px; /* Some padding */
+      font-size: 16px; /* Set a font size */
+      cursor: pointer; /* Mouse pointer on hover */
+  }
+
+  .submit-button{
+        background-color: black; /* Blue background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        padding: 12px 16px; /* Some padding */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+  }
+
+
+
+
+/*this is the css stuff for dragging the elements*/
+
+.wrapper{
+  background: #fff;
+  padding: 25px;
+  max-width: 460px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+}
+.wrapper .item{
+  color: #fff;
+  display: flex;
+  margin-bottom: 8px;
+  padding: 12px 17px;
+  background: #304B5F;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .item:last-child{
+  margin-bottom: 0px;
+}
+.wrapper .item .text{
+  font-size: 18px;
+  font-weight: 400;
+}
+.wrapper .item i{
+  font-size: 18px;
+  cursor: pointer;
 }

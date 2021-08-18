@@ -8,6 +8,12 @@ const todoItemsList = document.querySelector('.items');
 
 let items = [];
 
+todoItemsList.addEventListener('click', function(event){
+  if(event.target.tagName === 'LI'){
+    event.target.classList.toggle('checked');
+  }
+}, false);
+
 todoForm.addEventListener('submit', function(event){
   event.preventDefault();
   addItem(todoInput.value, todoDate.value);
@@ -44,19 +50,54 @@ function renderItems(items){
     
     const li = document.createElement('li');
     li.setAttribute('class', 'item');
+    li.setAttribute('id', items[i].id);
     li.setAttribute('data-key', items[i].id);
     if(items[i].completed === true){
       li.classList.add('checked');
     }
     
+    //add span to separate date and name 
     li.innerHTML = `
-    <input type='checkbox' class='checkbox' ${checked}>
-    ${items[i].date}: ${items[i].name}
-    <button class='delete-button'>X</button>`;
+    ${items[i].date} ${items[i].name}
+    <button class='delete-button'>
+      <span class="button-icon"><i class="fas fa-trash"></i></span>
+    </button>`;
+
+    
+    /* li.innerHTML = `<div class="wrapper">
+      <div class="item">
+        <span class="text">
+    ${items[i].date} ${items[i].name}</span>
+    <i class="fas fa-bars"></i>
+    </div>
+    </div>
+    <script>
+      const dragArea = document.querySelector(".wrapper");
+      new Sortable(dragArea, {
+        animation: 350
+      });
+    </script>
+    <button class='delete-button'>
+      <span class="button-icon"><i class="fas fa-trash"></i></span>
+    </button>`; */
+   
     
     todoItemsList.append(li);
   }
 }
+
+/* <div class="wrapper">
+      <div class="item">
+        <span class="text">kalb</span>
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <script>
+      const dragArea = document.querySelector(".wrapper");
+      new Sortable(dragArea, {
+        animation: 350
+      });
+    </script> */
 
 // function to add todos to local storage
 function addToLocalStorage(items) {
@@ -79,10 +120,11 @@ function getFromLocalStorage() {
 
 // toggle the value to completed and not completed
 function toggle(id) {
+  //alert('test')
   for(let i = 0; i<items.length; i++){
-   if(items[i].id == id){
-     items[i].completed = !items[i].completed;
-   }
+    if(items[i].id == id){
+      items[i].completed = !items[i].completed;
+    }
   }
   addToLocalStorage(items);
 };
@@ -103,9 +145,9 @@ getFromLocalStorage();
 
 todoItemsList.addEventListener('click', function(event) {
   // check if the event is on checkbox
-  if (event.target.type === 'checkbox') {
-    // toggle the state
-    toggle(event.target.parentElement.getAttribute('data-key'));
+
+  if (event.target && event.target.nodeName === 'LI'){
+    toggle(event.target.id);  // Check if the element is a LI
   }
 
   // check if that is a delete-button

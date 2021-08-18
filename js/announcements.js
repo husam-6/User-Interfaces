@@ -8,6 +8,12 @@ const announceList = document.querySelector('.announce-items');
 
 let announceItems = [];
 
+announceList.addEventListener('click', function(event){
+  if(event.target.tagName === 'LI'){
+    event.target.classList.toggle('checked');
+  }
+}, false);
+
 form.addEventListener('submit', function(event){
   event.preventDefault();
   addAnnounce(announceInput.value, announceDate.value);
@@ -45,14 +51,14 @@ function renderItems2(items){
     const li = document.createElement('li');
     li.setAttribute('class', 'item');
     li.setAttribute('data-key', items[i].id);
+    li.setAttribute('id', items[i].id);
     if(items[i].completed === true){
       li.classList.add('checked');
     }
     
     li.innerHTML = `
-    <input type='checkbox' class='checkbox' ${checked}>
-    ${items[i].date}: ${items[i].name}
-    <button class='delete-button'>X</button>`;
+    ${items[i].date} ${items[i].name}
+    <button class='delete-button'><i class="fa fa-trash" aria-hidden="true"></i></button>`;
     
     announceList.append(li);
   }
@@ -103,9 +109,8 @@ getFromLocalStorage2();
 
 announceList.addEventListener('click', function(event) {
   // check if the event is on checkbox
-  if (event.target.type === 'checkbox') {
-    // toggle the state
-    toggle2(event.target.parentElement.getAttribute('data-key'));
+  if (event.target && event.target.nodeName === 'LI'){
+    toggle2(event.target.id);  // Check if the element is a LI
   }
 
   // check if that is a delete-button
