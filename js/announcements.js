@@ -30,15 +30,15 @@ function addAnnounce(item, dueDate){
   }
   announceItems.push(entry);
   addToLocalStorage2(announceItems);
-
+  
   announceInput.value = '';
   announceDate.value = '';
 }
 
 function renderItems2(items){
-  announceItems.sort(function(a,b){
-    return new Date(a.date) - new Date(b.date);
-  });
+  // announceItems.sort(function(a,b){
+  //   return new Date(a.date) - new Date(b.date);
+  // });
   announceList.innerHTML = '';
   //alert('test')
   for(let i = 0; i<items.length; i++){
@@ -48,12 +48,13 @@ function renderItems2(items){
     li.setAttribute('class', 'item');
     li.setAttribute('data-key', items[i].id);
     li.setAttribute('id', items[i].id);
+    //li.setAttribute('draggable', true);
     if(items[i].completed === true){
       li.classList.add('checked');
     }
     
     li.innerHTML = `
-    ${items[i].date} ${items[i].name}
+    ${items[i].date} &emsp; ${items[i].name}
     <button class='delete-button'>-</button>`;
     
     announceList.append(li);
@@ -116,3 +117,4 @@ announceList.addEventListener('click', function(event) {
     window.localStorage.removeItem(event.target.parentElement);
   }
 });
+

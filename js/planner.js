@@ -36,9 +36,9 @@ function addItem(item, dueDate){
 }
 
 function renderItems(items){
-  items.sort(function(a,b){
-    return new Date(a.date) - new Date(b.date);
-  });
+  // items.sort(function(a,b){
+  //   return new Date(a.date) - new Date(b.date);
+  // });
   todoItemsList.innerHTML = '';
   //alert('test')
   for(let i = 0; i<items.length; i++){
@@ -48,14 +48,14 @@ function renderItems(items){
     li.setAttribute('class', 'item');
     li.setAttribute('id', items[i].id);
     li.setAttribute('data-key', items[i].id);
-    //li.setAttribute('draggable', true);
+    li.setAttribute('draggable', true);
     if(items[i].completed === true){
       li.classList.add('checked');
     }
     
     //add span to separate date and name 
     li.innerHTML = `
-    ${items[i].date} ${items[i].name}
+    ${items[i].date} &emsp; ${items[i].name}
     <button class='delete-button'>-</button>`;   
     
     todoItemsList.append(li);
@@ -121,8 +121,57 @@ todoItemsList.addEventListener('click', function(event) {
   }
 });
 
-//const dragArea = document.querySelector(".wrappe");
-let dragArea = document.getElementById("items")
-new Sortable(dragArea, {
-  animation: 350
+
+
+let dragged;
+let id;
+let index;
+let indexDrop;
+let list;
+
+document.addEventListener("dragstart", ({target}) => {
+    dragged = target;
+    id = target.id;
+    list = target.parentNode.children;
+    for(let i = 0; i < list.length; i += 1) {
+      if(list[i] === dragged){
+        index = i;
+      }
+    }
 });
+
+document.addEventListener("dragover", (event) => {
+  event.preventDefault();
+});
+
+document.addEventListener("drop", ({target}) => {
+  if(target.className == "item" && target.id !== id) {
+    let test = [...list];
+    let second = test.indexOf(target)
+    //alert(index);
+    //alert(second);
+    dragged.remove( dragged );
+    for(let i = 0; i < list.length; i++) {
+      if(list[i] === target){
+        indexDrop = i;
+      }
+    }
+    // alert(index);
+    //alert(indexDrop);
+    //console.log(index, indexDrop);
+    if(index > indexDrop) {
+      target.before( dragged );
+    } else {
+      target.after( dragged );
+    }
+
+    items = swapItems(index, second);
+    addToLocalStorage(items);
+  }
+});
+
+function swapItems(first, second){
+  let [tmp] = items.splice(first,1); 
+  items.splice(second,0, tmp);
+  return items; 
+}
