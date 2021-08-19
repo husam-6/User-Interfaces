@@ -321,8 +321,8 @@ ul li {
     font-family: IBM Plex Sans;
     float: right;
     background: none; 
-    color: white; /* White text */
-    cursor: pointer; /* Mouse pointer on hover */
+    color: white;  
+    cursor: pointer; 
     font-size: 30px; 
     margin-top: -10px; 
     border: none; 
@@ -335,10 +335,10 @@ ul li {
   transform: translateY(2px);
   }
   .submit-button, .top-button{
-    background: none; /* Blue background */
-    border: none; /* Remove borders */
-    color: #66FcF1; /* White text */
-    cursor: pointer; /* Mouse pointer on hover */
+    background: none;
+    border: none;  
+    color: #66FcF1; 
+    cursor: pointer; 
     transition: transform .2s
   }
 
@@ -361,13 +361,13 @@ input{
 
   #button-div {
   position: absolute; 
-  top: 158%; 
+  top: 158.4%; 
   left: 21%; 
 } 
 
 #button-div2 {
   position: absolute; 
-  top: 67.7%; 
+  top: 67.9%; 
   left: 66%; 
 }
 .sort-button {

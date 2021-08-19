@@ -13,8 +13,8 @@ function createCalendar(elem, year, month) {
     // from Monday till the first day of the month
     // * * * 1  2  3  4
     let prev = new Date(year, month, 0).getDate();
-    //console.log(prev)
-    let start = prev - d.getDate()-1;
+    console.log(d.getDay()-1)
+    let start = prev - d.getDay() + 1;
     for (let i = 0; i < getDay(d); i++) {
       table += '<td class="dummy2"><span class="test dummy">' + start + '</span></td>';
       start++;
@@ -63,4 +63,4 @@ function createCalendar(elem, year, month) {
   let y = d.getFullYear();
 
 
-  createCalendar(calendar, y, 7);
+  createCalendar(calendar, y, 11);
