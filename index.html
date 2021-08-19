@@ -3,7 +3,7 @@
 
 <head>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&family=Source+Code+Pro:wght@300&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Mono:wght@100&family=Roboto+Mono&family=Source+Code+Pro:wght@300&display=swap');
   </style> 
   <meta charset="UTF-8"/>
   <meta name="viewport"
@@ -18,42 +18,47 @@
 <body id="container">
 
   <div id="title"> 
-    <h1>Homies Schedule</h1>
+    <h1>Schedule Planner</h1>
   </div>
   <div id="planner" class='fade border'>
+
     <div class=underline>
       <h1> Planner </h1>
     </div>  
-    
+
     <div id="planner-form" class='fade'>
       <form class="form">
-          <input type="date" class="due-date" placeholder="Date - MM/DD/YY" size="20">
+          <input type="date" class="due-date"  size="20">
           <input type="text" class="plan-inp" placeholder="Assignment Name" size="20" required>
-          <button type="submit" class="submit-button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <select class="priority">
+            <option value="Homework">Homework</option>
+            <option value="Exam">Exam</option>
+            <option value="Project">Project</option>
+          </select>
+          <button type="submit" id="submit-button" class="submit-button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
       </form>
     </div>
 
     <div class="wrappe">
       <ul class="items ">
       </ul>
-      
-      <button class="sort-button">Sort</button>
     </div>
-    
+
+    <div id="button-div" class="button-div">
+      <button class="sort-button"><span class="sort-button-span">Sort by Date<i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span>
+      </button>
+      <button class="clear-all"><span class="clear-button-span">Clear All<i class="fa fa-bomb" aria-hidden="true"></i></span>
+      </button>
+      <!-- <a href="#planner">
+        <button class="planner-top-button"><i class="fas fa-angle-up"></i></button>
+      </a> -->
+    </div>
+
+
+
     <script type="text/javascript" src="js/planner.js" defer></script>
 
-    <!-- <div class="wrapper">
-      <div class="item">
-        <span class="text">kalb</span>
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-    <script>
-      const dragArea = document.querySelector(".wrapper");
-      new Sortable(dragArea, {
-        animation: 350
-      });
-    </script> -->
   </div>
   
   <div id="announcements" class='fade border'>
@@ -63,7 +68,7 @@
 
     <div id="announcement-form" class='fade'>
       <form class="announce-form">
-        <input type="date" class="date" placeholder="Date - MM/DD/YY" size="20">
+        <input type="date" class="date" size="20">
         <input type="text" class="announcement" placeholder="Announcement" size="20" required>
         <button type="submit" class="submit-button"><i class="fa fa-plus" aria-hidden="true"></i>
         </button>
@@ -74,19 +79,23 @@
       <ul class="announce-items">
       </ul>
     </div>
-    <button class="sort-button2">Sort</button>
-
+    <div id="button-div2" class="button-div2">
+    <button class="sort-button2"><span class="sort-button-span2">Sort by Date<i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span></button>
+    <button class="clear-all2"><span class="clear-button-span2">Clear All<i class="fa fa-bomb" aria-hidden="true"></i></span></button>
+    </div>
     <script type="text/javascript" src="js/announcements.js" defer></script>
-    
   </div>
   
   <div id="calendar" class='fade'>
     <script type="text/javascript" src="js/calendar.js"></script>
-    <script language="javascript">
-      createCalendar(calendar, 2021, 10);
-    </script>
   </div>
 
 </body>
+<footer> 
 
+<a href="#top">
+  <button class="top-button"><i class="fas fa-angle-up"></i></button>
+</a>
+
+</footer>
 </html>

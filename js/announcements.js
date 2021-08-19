@@ -5,19 +5,23 @@ const announceInput = document.querySelector('.announcement');
 const announceDate = document.querySelector('.date');
 // select the <ul> with class="todo-items"
 const announceList = document.querySelector('.announce-items');
+const clear2 = document.querySelector('.button-div2')
 
 let announceItems = [];
 
-document.addEventListener('click', function(event){
-  if(event.target.classList.contains('sort-button2')){
+clear2.addEventListener('click', function(event){
+  if(event.target.classList.contains('sort-button-span2')){
     //alert('test')
     announceItems.sort(function(a,b){
       return new Date(a.date) - new Date(b.date);
     });
     addToLocalStorage2(announceItems);
   }
+  if(event.target.classList.contains('clear-button-span2')){
+    announceItems = [];
+    addToLocalStorage2(announceItems);
+  }
 });
-
 
 announceList.addEventListener('click', function(event){
   if(event.target.tagName === 'LI'){
@@ -174,7 +178,7 @@ announceList.addEventListener("drop", ({target}) => {
     }
 
     announceItems = swapItems2(index2, second2);
-    //addToLocalStorage2(announceItems);
+    addToLocalStorage2(announceItems);
   }
 });
 

@@ -5,18 +5,24 @@ const todoInput = document.querySelector('.plan-inp');
 const todoDate = document.querySelector('.due-date');
 // select the <ul> with class="todo-items"
 const todoItemsList = document.querySelector('.items');
+const priority = document.querySelector('.priority') 
+const clear = document.querySelector('.button-div')
 
 let items = [];
 
-document.addEventListener('click', function(event){
-  if(event.target.classList.contains('sort-button')){
-    //alert('test')
+clear.addEventListener('click', function(event){
+  if(event.target.classList.contains('sort-button-span')){
     items.sort(function(a,b){
       return new Date(a.date) - new Date(b.date);
     });
     addToLocalStorage(items);
   }
+  if(event.target.classList.contains('clear-button-span')){
+    items = [];
+    addToLocalStorage(items);
+  }
 });
+
 
 todoItemsList.addEventListener('click', function(event){
   if(event.target.tagName === 'LI'){
@@ -30,12 +36,24 @@ todoForm.addEventListener('submit', function(event){
 });
 
 function addItem(item, dueDate){
+  //alert(priority.value);
+  let colorValue; 
+  if(priority.value === 'Exam'){
+    colorValue = 'Exam';
+  }
+  else if(priority.value === 'Project'){
+    colorValue = 'Project';
+  }
+  else{
+    colorValue = 'HW'
+  }
   if(item !== ''){
     var entry = {     //code has this as const
       id: Date.now(),
       date: dueDate,
       name: item, 
-      completed: false
+      completed: false, 
+      color: colorValue
     };
   }
   items.push(entry);
@@ -43,6 +61,7 @@ function addItem(item, dueDate){
 
   todoInput.value = '';
   todoDate.value = '';
+  priority.value = 'Homework'
 }
 
 function renderItems(items){
@@ -53,9 +72,10 @@ function renderItems(items){
   //alert('test')
   for(let i = 0; i<items.length; i++){
     var checked = items[i].completed ? 'checked': null;
-    
     const li = document.createElement('li');
-    li.setAttribute('class', 'item');
+    
+    
+    li.setAttribute('class', 'item' + " " + items[i].color);
     li.setAttribute('id', items[i].id);
     li.setAttribute('data-key', items[i].id);
     li.setAttribute('draggable', true);
@@ -131,8 +151,6 @@ todoItemsList.addEventListener('click', function(event) {
   }
 });
 
-
-
 let dragged;
 let id;
 let index;
@@ -155,7 +173,7 @@ todoItemsList.addEventListener("dragover", (event) => {
 });
 
 todoItemsList.addEventListener("drop", ({target}) => {
-  if(target.className == "item" && target.id !== id) {
+  if((target.className == "item Exam" || target.className == "item HW" || target.className == "item Project") && target.id !== id) {
     let test = [...list];
     let second = test.indexOf(target)
     //alert(index);
@@ -182,6 +200,6 @@ todoItemsList.addEventListener("drop", ({target}) => {
 
 function swapItems(first, second){
   let [tmp] = items.splice(first,1); 
-  items.splice(second,0, tmp);
+  items.splice(second, 0, tmp);
   return items; 
 }
