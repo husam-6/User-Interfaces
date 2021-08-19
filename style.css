@@ -190,12 +190,12 @@ input{
      
 }
 
-  /* :root {
+  :root {
   --bg-color: #0B0C10;
   --typewriterSpeed: 1.5s;
   --typewriterCharacters: 15;
 }
-*/ 
+ 
 #title{
     grid-area: header; 
     color: #66FcF1;
@@ -212,7 +212,7 @@ input{
     margin-top: 15px; 
     margin-bottom: -15px; 
 }
-/*
+
 #title::before,
 #title::after {
   content: "";
@@ -261,7 +261,7 @@ input{
     opacity: 1;
     transform: translateY(0);
   }
-} */
+}
 
 ul li {
     list-style-type: none;

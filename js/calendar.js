@@ -21,10 +21,14 @@ function createCalendar(elem, year, month) {
       }
   
     // <td> with actual dates
+    let calItems = getFromLocalStorage3();
     while (d.getMonth() == mon) {
       if(d.getDate() == highlight && mon == currDate.getMonth()){
         table += '<td class="highlight"><span class="test highlight">' + d.getDate() + '</span></td>';
       }
+      // else if(){
+
+      // }
       else{
         table += '<td><span class="test">' + d.getDate() + '</span></td>';
       }
@@ -56,6 +60,16 @@ function createCalendar(elem, year, month) {
   
   function getDay(date) { // get day number from 0 (Monday) to 6 (Sunday)
     return date.getDay();
+  }
+
+  function getFromLocalStorage3() {
+    var reference = localStorage.getItem('items');
+    // if reference exists
+    if (reference) {
+      // converts back to array and store it in items array
+      items = JSON.parse(reference);
+      return items; 
+    }
   }
 
   let d = new Date();
