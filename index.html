@@ -31,6 +31,7 @@
           <input type="date" class="due-date"  size="20">
           <input type="text" class="plan-inp" placeholder="Assignment Name" size="20" required>
           <select class="priority">
+            <option value="none" selected disabled hidden> Select Type </option>
             <option value="Homework">Homework</option>
             <option value="Exam">Exam</option>
             <option value="Project">Project</option>
@@ -44,18 +45,6 @@
       <ul class="items ">
       </ul>
     </div>
-
-    <div id="button-div" class="button-div">
-      <button class="sort-button"><span class="sort-button-span">Sort by Date<i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span>
-      </button>
-      <button class="clear-all" onclick="window.location.reload()"><span class="clear-button-span">Clear All<i class="fa fa-bomb" aria-hidden="true"></i></span>
-      </button>
-      <!-- <a href="#planner">
-        <button class="planner-top-button"><i class="fas fa-angle-up"></i></button>
-      </a> -->
-    </div>
-
-
 
     <script type="text/javascript" src="js/planner.js" defer></script>
 
@@ -79,10 +68,7 @@
       <ul class="announce-items">
       </ul>
     </div>
-    <div id="button-div2" class="button-div2">
-    <button class="sort-button2"><span class="sort-button-span2">Sort by Date<i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span></button>
-    <button class="clear-all2"><span class="clear-button-span2">Clear All<i class="fa fa-bomb" aria-hidden="true"></i></span></button>
-    </div>
+    
     <script type="text/javascript" src="js/announcements.js" defer></script>
   </div>
   
@@ -98,13 +84,15 @@
 </a>
 </footer>
 
-<div class="cal-butt">
-  <button class="left">Back<i class="fa fa-caret-left" aria-hidden="true"></i>
-  </button> 
-</div>
-<div class="cal-butt2">
-  <button class="right">Next<i class="fa fa-caret-right" aria-hidden="true"></i>
-  </button> 
-</div>
+  <button class="left fade">Back<i class="fa fa-caret-left" aria-hidden="true"></i> </button> 
+  <button class="right fade">Next<i class="fa fa-caret-right" aria-hidden="true"></i> </button> 
 
+  <div id="button-div2" class="button-div2 fade">
+    <button class="sort-button2"><span class="sort-button-span2">Sort by Date<i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span></button>
+    <button class="clear-all2"><span class="clear-button-span2">Clear All<i class="fa fa-bomb" aria-hidden="true"></i></span></button>
+  </div>
+  <div id="button-div" class="button-div fade">
+    <button class="sort-button"><span class="sort-button-span">Sort by Date<i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span> </button>
+    <button class="clear-all" onclick="window.location.reload()"><span class="clear-button-span">Clear All<i class="fa fa-bomb" aria-hidden="true"></i></span> </button>
+  </div>
 </html>

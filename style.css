@@ -23,32 +23,6 @@ th {
     margin-top: -50px;
 }
 
-.classItem {
-  line-height: 25px; 
-  font-size: 15px; 
-  margin-top: -86px; 
-  position: relative; 
-  display: block; 
-  height: 84px; 
-  bottom: -55px; 
-  overflow: scroll; 
-  overflow-x: hidden; 
-  font-family: 'Klee One', cursive;
-}
-
-.cal-butt {
-  position: absolute; 
-  top: 775px; 
-  left: 55%; 
-  cursor: pointer;
-}
-
-.cal-butt2 {
-  position: absolute; 
-  top: 775px; 
-  left: 87%; 
-  cursor: pointer; 
-}
   
 .classItem::-webkit-scrollbar {
   width: 2px; 
@@ -223,12 +197,12 @@ input{
      
 }
 
-  /* :root {
+   :root {
   --bg-color: #0B0C10;
   --typewriterSpeed: 1.5s;
-  --typewriterCharacters: 15;
+  --typewriterCharacters: 16;
 }
-*/ 
+ 
 #title{
     grid-area: header; 
     color: #66FcF1;
@@ -245,8 +219,8 @@ input{
     margin-top: 15px; 
     margin-bottom: -15px; 
 }
-/*
-#title::before,
+
+/* #title::before,
 #title::after {
   content: "";
   position: absolute;
@@ -393,6 +367,132 @@ input{
     transition:.3s;
   }
 
+
+input:focus{
+  border-color: #66FcF1;
+  box-shadow:0 0 8px 0 #66FcF1;
+}
+
+.Exam {
+  border-color: lightcoral;
+}
+.Project{
+  border-color: lightgreen;
+}
+.HW{
+  border-color: #66FcF1;
+}
+
+#Exam{
+  color: lightcoral;
+}
+#Project{
+  color: lightgreen;
+}
+#HW{
+  color: #66FcF1;
+}
+
+.month{
+  text-align: center;
+  color: #66FcF1;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold; 
+}
+
+i {
+  display: inline-block;
+  margin-left: 0.35em;
+}
+
+:root {
+  --radius: 3px;
+  --baseFg: dimgray;
+  --baseBg: white;
+  --accentFg: #66FcF1;
+  --accentBg: #1a2835;
+  --lightblue: lightblue; 
+}
+
+select {
+  height: 38px; 
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--baseFg);
+  border: 1px solid var(--accentFg);
+  line-height: 1;
+  outline: 0;
+  padding: 0.65em 2.5em 0.55em 0.75em;
+  border-radius: var(--radius);
+  background-color: var(--baseBg);
+
+  background-image: linear-gradient(var(--lightblue), var(--lightblue)),
+    linear-gradient(-135deg, transparent 50%, var(--lightblue) 50%),
+    linear-gradient(-225deg, transparent 50%, var(--lightblue) 50%),
+    linear-gradient(var(--lightblue) 42%, var(--accentBg) 42%);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  background-position: right 20px center, right bottom, right bottom, right bottom;   
+}
+
+select:hover {
+  background-image: linear-gradient(var(--baseFg), var(--baseFg)),
+    linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+    linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+    linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+}
+
+select:active {
+  color: var(--accentBg);
+  border-color: var(--accentFg);
+  background-color: lightgray;
+}
+
+.classItem {
+  line-height: 25px; 
+  font-size: 15px; 
+  margin-top: -86px; 
+  position: relative; 
+  display: block; 
+  height: 84px; 
+  bottom: -55px; 
+  overflow: scroll; 
+  overflow-x: hidden; 
+  font-family: 'Klee One', cursive;
+}
+
+.left {
+position: absolute; 
+top: 775px; 
+left: 55.5%; 
+cursor: pointer;
+padding:0.35em 1.2em;
+border:2px solid lightblue;
+text-decoration:none;
+color:#FFFFFF;
+text-align:center;
+transition: all 0.2s;
+background: black ; 
+border-radius: 8px; 
+}
+.left:hover, .right:hover {
+color:#000000;
+background-color:lightblue;
+}
+.right {
+position: absolute; 
+top: 775px; 
+left: 86%; 
+cursor: pointer; 
+padding:0.35em 1.2em;
+border:2px solid lightblue;
+text-decoration:none;
+color:#FFFFFF;
+text-align:center;
+transition: all 0.2s;
+background: black ; 
+border-radius: 8px; 
+}
   #button-div {
   position: absolute; 
   top: 158.4%; 
@@ -526,83 +626,4 @@ input{
 
 .sort-button2:hover .sort-button-span2 {
   background: transparent;
-}
-input:focus{
-  border-color: #66FcF1;
-  box-shadow:0 0 8px 0 #66FcF1;
-}
-
-.Exam {
-  border-color: lightcoral;
-}
-.Project{
-  border-color: lightgreen;
-}
-.HW{
-  border-color: #66FcF1;
-}
-
-#Exam{
-  color: lightcoral;
-}
-#Project{
-  color: lightgreen;
-}
-#HW{
-  color: #66FcF1;
-}
-
-.month{
-  text-align: center;
-  color: #66FcF1;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold; 
-}
-
-i {
-  display: inline-block;
-  margin-left: 0.35em;
-}
-
-:root {
-  --radius: 3px;
-  --baseFg: dimgray;
-  --baseBg: white;
-  --accentFg: #66FcF1;
-  --accentBg: #1a2835;
-  --lightblue: lightblue; 
-}
-
-select {
-  height: 38px; 
-  -webkit-appearance: none;
-  appearance: none;
-  color: var(--baseFg);
-  border: 1px solid var(--accentFg);
-  line-height: 1;
-  outline: 0;
-  padding: 0.65em 2.5em 0.55em 0.75em;
-  border-radius: var(--radius);
-  background-color: var(--baseBg);
-
-  background-image: linear-gradient(var(--lightblue), var(--lightblue)),
-    linear-gradient(-135deg, transparent 50%, var(--lightblue) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--lightblue) 50%),
-    linear-gradient(var(--lightblue) 42%, var(--accentBg) 42%);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
-  background-position: right 20px center, right bottom, right bottom, right bottom;   
-}
-
-select:hover {
-  background-image: linear-gradient(var(--baseFg), var(--baseFg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
-}
-
-select:active {
-  color: var(--accentBg);
-  border-color: var(--accentFg);
-  background-color: lightgray;
 }
