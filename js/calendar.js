@@ -13,24 +13,33 @@ function createCalendar(elem, year, month) {
     // from Monday till the first day of the month
     // * * * 1  2  3  4
     let prev = new Date(year, month, 0).getDate();
-    console.log(d.getDay()-1)
+    //console.log(d.getDay()-1)
     let start = prev - d.getDay() + 1;
     for (let i = 0; i < getDay(d); i++) {
       table += '<td class="dummy2"><span class="test dummy">' + start + '</span></td>';
       start++;
       }
-  
+      
     // <td> with actual dates
-    let calItems = getFromLocalStorage3();
     while (d.getMonth() == mon) {
-      if(d.getDate() == highlight && mon == currDate.getMonth()){
-        table += '<td class="highlight"><span class="test highlight">' + d.getDate() + '</span></td>';
+      if(d.getDate() == highlight && mon == currDate.getMonth()){ 
+        if (getAssignment(calItems, d.getDate(), d.getMonth()+1)){
+          table += '<td class="highlight">'+ '<span class="test highlight">'+ d.getDate() + '</span>' + getAssignment(calItems, d.getDate(), d.getMonth()+1) + "</td>";
+        }
+        else {
+          table += '<td class="highlight"><span class="test highlight">'+ d.getDate() + '</span></td>';
+        }
       }
-      // else if(){
-
-      // }
       else{
-        table += '<td><span class="test">' + d.getDate() + '</span></td>';
+        if (getAssignment(calItems, d.getDate(), d.getMonth()+1) !== false){
+          //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
+          //console.log('test')
+          table += '<td>'+ '<span class="test">'+ d.getDate() + '</span>' + getAssignment(calItems, d.getDate(), d.getMonth()+1) + "</td>";
+        }
+        else{
+          table += '<td><span class="test">'+ d.getDate() + '</span></td>';
+        }
+        //table += '<td><span class="test">' + d.getDate() + '</span></td>';
       }
       //table += '<td id="kalb" fix()>' + d.getDate() + '</td>';
       
@@ -44,10 +53,18 @@ function createCalendar(elem, year, month) {
     // add spaces after last days of month for the last row
     // 29 30 31 * * * *
     let after = 1; 
-    console.log(getDay(d));
+    //console.log(getDay(d));
     if (getDay(d) !== 0) {
       for (let i = getDay(d)-1; i < 6; i++) {
-        table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
+        if (getAssignment(calItems, i, d.getMonth()) !== false){
+          //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
+          //console.log('test')
+          table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
+        }
+        else{
+          table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
+        }
+        //table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
         after++; 
       }
     }
@@ -71,10 +88,49 @@ function createCalendar(elem, year, month) {
       return items; 
     }
   }
+  
+  function getAssignment(calItems, date, month) {
+    //console.log(calItems);
+    let tmp = '<span class="classItem">';
+    for(let i = 0; i<calItems.length; i++){
+      itemDate = calItems[i].date;
+      itemDate = itemDate.split('-');
+      //console.log(itemDate[1] == month)
+      if(itemDate[1] == month && itemDate[2] == date){  //check again for priority 
+        let name = calItems[i].name;
+        let prior = calItems[i].color;
+        //console.log(prior)
+        name = name.split(" ");
+        console.log(name);
+        if(name[0].length >= 5)
+        {
+          tmp += '<i id="'+ prior + '" class="fa fa-tag" aria-hidden="true"></i> ' + name[0].slice(0, 5) + '<br>'
+        }
+        else
+        {
+          tmp += '<i id="'+ prior + '" class="fa fa-tag" aria-hidden="true"></i> ' + name[0] + '<br>'
+        }
+      }
+    }
+    if(tmp!=='<span class="classItem">'){
+      return tmp += '</span>';
+    }
+    return false;
+  }
 
+  const formInp = document.querySelector('.form');
+  
   let d = new Date();
   let m = d.getMonth();
   let y = d.getFullYear();
+  let calItems = getFromLocalStorage3();
 
+  formInp.addEventListener('submit', function(event){
+    //event.preventDefault();
+    Object.reload(forcedReload);
+  });
+
+
+  console.log(getAssignment(calItems, 21, 08))
 
   createCalendar(calendar, y, m);

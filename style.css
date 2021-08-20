@@ -17,6 +17,29 @@ th {
     font-style : bold; 
 }
 
+.test{
+    float: right;
+    margin-right: 10px;
+    margin-top: -50px;
+}
+
+.classItem {
+  line-height: 25px; 
+  font-size: 14px; 
+  margin-top: -86px; 
+  position: relative; 
+  display: block; 
+  height: 84px; 
+  bottom: -55px; 
+  overflow: scroll; 
+  overflow-x: hidden; 
+}
+
+.classItem::-webkit-scrollbar {
+  width: 2px; 
+}
+
+
 .highlight{
   color: #66FcF1;
   border-width: 4px; 
@@ -143,11 +166,6 @@ h1{
     border-width: 1px; 
 }
 
-.test{
-    float: right;
-    margin-right: 10px;
-    margin-top: -50px;
-}
 .highlight{
   color: #66FcF1;
   border-color: #66FcF1;
@@ -190,12 +208,12 @@ input{
      
 }
 
-  :root {
+  /* :root {
   --bg-color: #0B0C10;
   --typewriterSpeed: 1.5s;
   --typewriterCharacters: 15;
 }
- 
+*/ 
 #title{
     grid-area: header; 
     color: #66FcF1;
@@ -212,7 +230,7 @@ input{
     margin-top: 15px; 
     margin-bottom: -15px; 
 }
-
+/*
 #title::before,
 #title::after {
   content: "";
@@ -261,7 +279,7 @@ input{
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 ul li {
     list-style-type: none;
@@ -499,7 +517,7 @@ input:focus{
   box-shadow:0 0 8px 0 #66FcF1;
 }
 
-.Exam{
+.Exam {
   border-color: lightcoral;
 }
 .Project{
@@ -507,6 +525,16 @@ input:focus{
 }
 .HW{
   border-color: #66FcF1;
+}
+
+#Exam{
+  color: lightcoral;
+}
+#Project{
+  color: lightgreen;
+}
+#HW{
+  color: #66FcF1;
 }
 
 .month{

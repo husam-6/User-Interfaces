@@ -31,7 +31,7 @@ todoItemsList.addEventListener('click', function(event){
 }, false);
 
 todoForm.addEventListener('submit', function(event){
-  event.preventDefault();
+  //event.preventDefault();
   addItem(todoInput.value, todoDate.value);
 });
 
@@ -86,7 +86,7 @@ function renderItems(items){
     //add span to separate date and name 
     li.innerHTML = `
     ${items[i].date} &emsp; ${items[i].name}
-    <button class='delete-button'>-</button>`;   
+    <button class='delete-button' onclick='window.location.reload()'>-</button>`;   
     
     todoItemsList.append(li);
   }
@@ -148,6 +148,7 @@ todoItemsList.addEventListener('click', function(event) {
     // get id from data-key attribute's value of parent <li> where the delete-button is present
     deleteTodo(event.target.parentElement.getAttribute('data-key'));
     window.localStorage.removeItem(event.target.parentElement);
+    //document.location.reload(true);
   }
 });
 
