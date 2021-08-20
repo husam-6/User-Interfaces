@@ -1,4 +1,5 @@
 function createCalendar(elem, year, month) {
+    console.log(month)
     let currDate = new Date();
     let highlight = String(currDate.getDate()).padStart(2, '0');
     let mon = month; // months in JS are 0..11, not 1..12
@@ -16,7 +17,15 @@ function createCalendar(elem, year, month) {
     //console.log(d.getDay()-1)
     let start = prev - d.getDay() + 1;
     for (let i = 0; i < getDay(d); i++) {
-      table += '<td class="dummy2"><span class="test dummy">' + start + '</span></td>';
+      if (getAssignment(calItems, start, mon) !== false){
+        //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
+        //console.log('test')
+        table += '<td class="dummy2"><span class="test dummy">' + start + '</span>'+ getAssignment(calItems, start, mon) + '</td>';
+      }
+      else{
+        table += '<td class="dummy2"><span class="test dummy">' + start + '</span></td>';
+      }
+      //table += '<td class="dummy2"><span class="test dummy">' + start + '</span></td>';
       start++;
       }
       
@@ -56,10 +65,11 @@ function createCalendar(elem, year, month) {
     //console.log(getDay(d));
     if (getDay(d) !== 0) {
       for (let i = getDay(d)-1; i < 6; i++) {
-        if (getAssignment(calItems, i, d.getMonth()) !== false){
+        console.log(getAssignment(calItems, after, mon+2));
+        if (getAssignment(calItems, after, mon+2) !== false){
           //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
           //console.log('test')
-          table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
+          table += '<td class="dummy2"><span class="test dummy">' + after + '</span>'+ getAssignment(calItems, after, mon+2) + '</td>';
         }
         else{
           table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
@@ -101,10 +111,10 @@ function createCalendar(elem, year, month) {
         let prior = calItems[i].color;
         //console.log(prior)
         name = name.split(" ");
-        console.log(name);
+        //console.log(name);
         if(name[0].length >= 5)
         {
-          tmp += '<i id="'+ prior + '" class="fa fa-tag" aria-hidden="true"></i> ' + name[0].slice(0, 5) + '<br>'
+          tmp += '<i id="'+ prior + '" class="fa fa-tag" aria-hidden="true"></i> ' + name[0].slice(0, 5) + '.<br>'
         }
         else
         {
@@ -131,6 +141,6 @@ function createCalendar(elem, year, month) {
   });
 
 
-  console.log(getAssignment(calItems, 21, 08))
+  //console.log(getAssignment(calItems, 21, 08))
 
   createCalendar(calendar, y, m);
