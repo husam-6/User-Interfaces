@@ -168,3 +168,12 @@ function createCalendar(elem, year, month) {
       createCalendar(calendar,y,m);
     }
   });
+
+// var firstTime = localStorage.getItem("first_time");
+// console.log(firstTime)
+// if(!firstTime) {
+//   // first time loaded!
+//   localStorage.setItem("first_time", 2);
+// }
+// console.log(firstTime)
+
