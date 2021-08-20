@@ -6,7 +6,7 @@ function createCalendar(elem, year, month) {
     let d = new Date(year, mon);
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    let table = '<table><h2 class="month">' + monthNames[mon] + " - "+ d.getFullYear() + '</h2>';
+    let table = '<table><h2 class="month" id="month">' + monthNames[mon] + " - "+ d.getFullYear() + '</h2>';
     //let table = '<table><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr><tr>';
     table += '<table><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr><tr>';
   
@@ -31,7 +31,7 @@ function createCalendar(elem, year, month) {
       
     // <td> with actual dates
     while (d.getMonth() == mon) {
-      if(d.getDate() == highlight && mon == currDate.getMonth()){ 
+      if(d.getDate() == highlight && mon == currDate.getMonth() && year == currDate.getFullYear()){ 
         if (getAssignment(calItems, d.getDate(), d.getMonth()+1)){
           table += '<td class="highlight">'+ '<span class="test highlight">'+ d.getDate() + '</span>' + getAssignment(calItems, d.getDate(), d.getMonth()+1) + "</td>";
         }
@@ -106,7 +106,7 @@ function createCalendar(elem, year, month) {
       itemDate = calItems[i].date;
       itemDate = itemDate.split('-');
       //console.log(itemDate[1] == month)
-      if(itemDate[1] == month && itemDate[2] == date){  //check again for priority 
+      if(itemDate[1] == month && itemDate[2] == date &&itemDate[0]==y){  //check again for priority 
         let name = calItems[i].name;
         let prior = calItems[i].color;
         //console.log(prior)
@@ -129,7 +129,9 @@ function createCalendar(elem, year, month) {
   }
 
   const formInp = document.querySelector('.form');
+  //console.log(left)
   
+  let current = true; 
   let d = new Date();
   let m = d.getMonth();
   let y = d.getFullYear();
@@ -140,7 +142,29 @@ function createCalendar(elem, year, month) {
     Object.reload(forcedReload);
   });
 
-
-  //console.log(getAssignment(calItems, 21, 08))
-
+  
+  
   createCalendar(calendar, y, m);
+  //console.log(getAssignment(calItems, 21, 08))
+  document.addEventListener('click', function(event) {
+    if(event.target.classList.contains('left')){
+      if(m===0){
+        m=11;
+        y--;
+      }
+      else{
+        m--;
+      }
+      createCalendar(calendar, y, m);
+    }
+    else if(event.target.classList.contains('right')){
+      if(m===11){
+        m=0;
+        y++; 
+      }
+      else{
+        m++;
+      }
+      createCalendar(calendar,y,m);
+    }
+  });

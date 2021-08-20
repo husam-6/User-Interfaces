@@ -36,6 +36,20 @@ th {
   font-family: 'Klee One', cursive;
 }
 
+.cal-butt {
+  position: absolute; 
+  top: 775px; 
+  left: 55%; 
+  cursor: pointer;
+}
+
+.cal-butt2 {
+  position: absolute; 
+  top: 775px; 
+  left: 87%; 
+  cursor: pointer; 
+}
+  
 .classItem::-webkit-scrollbar {
   width: 2px; 
 }
