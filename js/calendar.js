@@ -112,9 +112,9 @@ function createCalendar(elem, year, month) {
         //console.log(prior)
         name = name.split(" ");
         //console.log(name);
-        if(name[0].length > 8)
+        if(name[0].length > 7)
         {
-          tmp += '<i id="'+ prior + '" class="fa fa-tag" aria-hidden="true"></i> ' + name[0].slice(0, 8) + '.<br>'
+          tmp += '<i id="'+ prior + '" class="fa fa-tag" aria-hidden="true"></i> ' + name[0].slice(0, 7) + '.<br>'
         }
         else
         {

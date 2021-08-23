@@ -24,7 +24,6 @@ th {
     margin-right: 10px;
     margin-top: -50px;
 }
-
   
 .classItem::-webkit-scrollbar {
   width: 2px; 
@@ -402,7 +401,7 @@ select:active {
   margin-top: -86px; 
   position: relative; 
   display: block; 
-  height: 84px; 
+  height: 82px; 
   bottom: -55px; 
   overflow: scroll; 
   overflow-x: hidden; 
