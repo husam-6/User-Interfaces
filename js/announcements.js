@@ -69,7 +69,7 @@ function renderItems2(items){
     li.setAttribute('draggable', true);
     
     li.innerHTML = `
-    ${items[i].date} &emsp; ${items[i].name}
+    ${items[i].date} &emsp; ${items[i].name.slice(0, 45)}
     <button class='delete-button'>-</button>`;
     
     announceList.append(li);

@@ -1,5 +1,5 @@
 function createCalendar(elem, year, month) {
-    console.log(month)
+    //console.log(month)
     let currDate = new Date();
     let highlight = String(currDate.getDate()).padStart(2, '0');
     let mon = month; // months in JS are 0..11, not 1..12
@@ -65,7 +65,7 @@ function createCalendar(elem, year, month) {
     //console.log(getDay(d));
     if (getDay(d) !== 0) {
       for (let i = getDay(d)-1; i < 6; i++) {
-        console.log(getAssignment(calItems, after, mon+2));
+        //console.log(getAssignment(calItems, after, mon+2));
         if (getAssignment(calItems, after, mon+2) !== false){
           //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
           //console.log('test')

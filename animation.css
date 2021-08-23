@@ -1,0 +1,58 @@
+   :root {
+  --bg-color: #0B0C10;
+  --typewriterSpeed: 1.5s;
+  --typewriterCharacters: 16;
+}
+ #title::before,
+#title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#title::before {
+  background: var(--bg-color);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+#title::after {
+  width: 0.125em;
+  background: #66FcF2;
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 1s steps(var(--typewriterCharacters)) infinite;
+}
+
+.fade {
+  color: hsl(0 0% 0% / 0.7);
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }
+
+  .left, .right {
+color:#c5c6c7;
+}

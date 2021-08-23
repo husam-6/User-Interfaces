@@ -1,5 +1,4 @@
-
-@media (min-width: 1000px) {
+@media (max-width: 479px) {
 
 table {
     border-collapse: collapse;
@@ -7,6 +6,7 @@ table {
 
 td, th {
     border: 1px double black;
+    /* padding: 46px; */
     background-color: #1F2833; 
     height: 100px;
     width: 100px;
@@ -48,18 +48,17 @@ th {
 #container {
     display: grid;
     grid-template-areas:
-        "header header"
-        "planner announcements"
-        "planner calendar"
-        "planner calendar"; 
+        "header"
+        "announcements"
+        "planner"
+        "calendar"; 
     grid-gap: 70px; 
-    grid-template-columns: 2fr 2fr; 
-    grid-template-rows: .2fr 2fr 1fr 2fr;
+    grid-template-columns: 300px; 
     background: #0B0C10;
     font-family: 'IBM Plex Mono', monospace;
-    height: 1650px;
-    width: auto;
-    justify-items: center; 
+    height: auto;
+    width: 300px;
+    justify-content: right;
 }
 
 .sort-button {
@@ -85,11 +84,10 @@ th {
     padding-bottom: 50px; 
     margin-bottom: 50px; 
     height: 1363px; 
-    width: 800px; 
+    width: 360px; 
     text-align: center; 
     overflow: scroll; 
-    overflow-x: hidden; 
-    margin-right: -120px; 
+    overflow-x: hidden;
 }
 
 #announcements{
@@ -97,10 +95,8 @@ th {
     background-color: #1F2833; 
     color: #66FcF1; 
     height : 500px; 
-    width: 700px; 
-    padding-bottom: 50px; 
+    width: 360px; 
     text-align: center; 
-    margin-left: -120px; 
     overflow: scroll; 
     overflow-x: hidden;
 }
@@ -142,13 +138,12 @@ th {
     border : double; 
     border-color:#66FcF1;
     border-width: 1px; 
-    margin-left: -120px; 
 }
 
 h1{
     color: #66FcF1; 
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .underline {
@@ -195,14 +190,13 @@ input{
 
 .sort-button,.clear-all, .clear-all2{
   cursor: pointer;
-     
 }
 
  
 #title{
     grid-area: header; 
     color: #66FcF1;
-    text-align: center; 
+    text-align: right; 
     font-size: 20px; 
     display: grid;
     place-content: center;
@@ -214,6 +208,7 @@ input{
     margin: auto; 
     margin-top: 15px; 
     margin-bottom: -15px; 
+    left: 30px;
 }
 
 ul li {
@@ -297,8 +292,7 @@ ul li {
   }
 
 .submit-button {
-  font-size : 16px;
-
+  font-size : 16px
 }
   .submit-button:hover, .top-button:hover {
   transform: scale(1.4); 
@@ -411,14 +405,14 @@ select:active {
 
   #button-div {
   position: absolute; 
-  top: 158.4%; 
-  left: 21%; 
+  top: 305%; 
+  left: 18%; 
 } 
 
 #button-div2 {
   position: absolute; 
-  top: 67.9%; 
-  left: 66%; 
+  top: 85%; 
+  left: 18%; 
 }
 .sort-button {
   background: lightblue;
@@ -549,37 +543,44 @@ select:active {
   background: #232c3a; 
   color: gray
 }
+.announcement, .date {
+  width: 150px;
+  margin-right: -10px; 
+  margin-left: 8px; 
+}
 
 .left {
-position: absolute; 
-top: 775px; 
-left: 55.5%; 
-cursor: pointer;
-padding:0.35em 1.2em;
-border:2px solid lightblue;
-text-decoration:none;
-color:#c5c6c7;
-text-align:center;
-transition: all 0.2s;
-background: black ; 
-border-radius: 8px; 
+    position: absolute; 
+    top: 338%; 
+    left: 52%; 
+    cursor: pointer;
+    padding:0.35em 1.2em;
+    border:2px solid lightblue;
+    text-decoration:none;
+    color:#c5c6c7;
+    text-align:center;
+    transition: all 0.2s;
+    background: black ; 
+    border-radius: 8px;
+    width: fit-content; 
 }
 .left:hover, .right:hover {
-color:#000000;
-background-color:lightblue;
+    color:#000000;
+    background-color:lightblue;
 }
 .right {
-position: absolute; 
-top: 775px; 
-left: 86%; 
-cursor: pointer; 
-padding:0.35em 1.2em;
-border:2px solid lightblue;
-text-decoration:none;
-color:#c5c6c7;
-text-align:center;
-transition: all 0.2s;
-background: black ; 
-border-radius: 8px; 
+    position: absolute; 
+    top: 338%; 
+    left: 120%;
+    cursor: pointer; 
+    padding:0.35em 1.2em;
+    border:2px solid lightblue;
+    text-decoration:none;
+    color:#c5c6c7;
+    text-align:center;
+    transition: all 0.2s;
+    background: black ; 
+    border-radius: 8px;
+    width: fit-content; 
 }
 }
