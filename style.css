@@ -170,9 +170,6 @@ input{
     color: black;
     flex-grow: 1;
 }
-.due-date , .date{
-  color: gray; 
-}
 .item{
     color: white;
     font-weight: bold; 
@@ -368,7 +365,7 @@ input{
   }
 
 
-input:focus{
+input:focus, select:focus{
   border-color: #66FcF1;
   box-shadow:0 0 8px 0 #66FcF1;
 }
@@ -408,7 +405,7 @@ i {
 :root {
   --radius: 3px;
   --baseFg: dimgray;
-  --baseBg: white;
+  --baseBg: #232c3a;
   --accentFg: #66FcF1;
   --accentBg: #1a2835;
   --lightblue: lightblue; 
@@ -418,13 +415,14 @@ select {
   height: 38px; 
   -webkit-appearance: none;
   appearance: none;
-  color: var(--baseFg);
+  color: gray;
   border: 1px solid var(--accentFg);
   line-height: 1;
   outline: 0;
   padding: 0.65em 2.5em 0.55em 0.75em;
   border-radius: var(--radius);
   background-color: var(--baseBg);
+  transition:.3s;
 
   background-image: linear-gradient(var(--lightblue), var(--lightblue)),
     linear-gradient(-135deg, transparent 50%, var(--lightblue) 50%),
@@ -626,4 +624,10 @@ border-radius: 8px;
 
 .sort-button2:hover .sort-button-span2 {
   background: transparent;
+}
+
+
+.due-date, .date, .announcement, .plan-inp {
+  background: #232c3a; 
+  color: gray
 }
