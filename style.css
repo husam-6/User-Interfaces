@@ -433,7 +433,7 @@ select:active {
 
 .sort-button:hover {
   color: black;
-}
+} 
 
 .sort-button .sort-button-span {
   align-items: center;
@@ -562,6 +562,8 @@ text-align:center;
 transition: all 0.2s;
 background: black ; 
 border-radius: 8px; 
+width: fit-content; 
+padding-left: 10px; 
 }
 .left:hover, .right:hover {
 color:#000000;
