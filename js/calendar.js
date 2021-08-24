@@ -1,5 +1,4 @@
 function createCalendar(elem, year, month) {
-    //console.log(month)
     let currDate = new Date();
     let highlight = String(currDate.getDate()).padStart(2, '0');
     let mon = month; // months in JS are 0..11, not 1..12
@@ -7,25 +6,20 @@ function createCalendar(elem, year, month) {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     let table = '<table><h2 class="month" id="month">' + monthNames[mon] + " - "+ d.getFullYear() + '</h2>';
-    //let table = '<table><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr><tr>';
     table += '<table><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr><tr>';
   
     // spaces for the first row
     // from Monday till the first day of the month
     // * * * 1  2  3  4
     let prev = new Date(year, month, 0).getDate();
-    //console.log(d.getDay()-1)
     let start = prev - d.getDay() + 1;
     for (let i = 0; i < getDay(d); i++) {
       if (getAssignment(calItems, start, mon) !== false){
-        //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
-        //console.log('test')
         table += '<td class="dummy2"><span class="test dummy">' + start + '</span>'+ getAssignment(calItems, start, mon) + '</td>';
       }
       else{
         table += '<td class="dummy2"><span class="test dummy">' + start + '</span></td>';
       }
-      //table += '<td class="dummy2"><span class="test dummy">' + start + '</span></td>';
       start++;
       }
       
@@ -41,16 +35,12 @@ function createCalendar(elem, year, month) {
       }
       else{
         if (getAssignment(calItems, d.getDate(), d.getMonth()+1) !== false){
-          //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
-          //console.log('test')
           table += '<td>'+ '<span class="test">'+ d.getDate() + '</span>' + getAssignment(calItems, d.getDate(), d.getMonth()+1) + "</td>";
         }
         else{
           table += '<td><span class="test">'+ d.getDate() + '</span></td>';
         }
-        //table += '<td><span class="test">' + d.getDate() + '</span></td>';
       }
-      //table += '<td id="kalb" fix()>' + d.getDate() + '</td>';
       
       if (getDay(d) % 7 == 6) { // sunday, last day of week - newline
         table += '</tr><tr>';
@@ -62,19 +52,14 @@ function createCalendar(elem, year, month) {
     // add spaces after last days of month for the last row
     // 29 30 31 * * * *
     let after = 1; 
-    //console.log(getDay(d));
     if (getDay(d) !== 0) {
       for (let i = getDay(d)-1; i < 6; i++) {
-        //console.log(getAssignment(calItems, after, mon+2));
         if (getAssignment(calItems, after, mon+2) !== false){
-          //console.log(getAssignment(calItems, d.getDate(), d.getMonth()+1))
-          //console.log('test')
           table += '<td class="dummy2"><span class="test dummy">' + after + '</span>'+ getAssignment(calItems, after, mon+2) + '</td>';
         }
         else{
           table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
         }
-        //table += '<td class="dummy2"><span class="test dummy">' + after + '</span></td>';
         after++; 
       }
     }
@@ -100,18 +85,14 @@ function createCalendar(elem, year, month) {
   }
   
   function getAssignment(calItems, date, month) {
-    //console.log(calItems);
     let tmp = '<span class="classItem">';
     for(let i = 0; i<calItems.length; i++){
       itemDate = calItems[i].date;
       itemDate = itemDate.split('-');
-      //console.log(itemDate[1] == month)
       if(itemDate[1] == month && itemDate[2] == date &&itemDate[0]==y){  //check again for priority 
         let name = calItems[i].name;
         let prior = calItems[i].color;
-        //console.log(prior)
         name = name.split(" ");
-        //console.log(name);
         if(name[0].length > 7)
         {
           tmp += '<i id="'+ prior + '" class="fa fa-tag" aria-hidden="true"></i> ' + name[0].slice(0, 7) + '.<br>'
@@ -129,7 +110,6 @@ function createCalendar(elem, year, month) {
   }
 
   const formInp = document.querySelector('.form');
-  //console.log(left)
   
   let current = true; 
   let d = new Date();
@@ -138,14 +118,12 @@ function createCalendar(elem, year, month) {
   let calItems = getFromLocalStorage3();
 
   formInp.addEventListener('submit', function(event){
-    //event.preventDefault();
     Object.reload(forcedReload);
   });
 
   
   
   createCalendar(calendar, y, m);
-  //console.log(getAssignment(calItems, 21, 08))
   document.addEventListener('click', function(event) {
     if(event.target.classList.contains('left')){
       if(m===0){
@@ -168,12 +146,3 @@ function createCalendar(elem, year, month) {
       createCalendar(calendar,y,m);
     }
   });
-
-// var firstTime = localStorage.getItem("first_time");
-// console.log(firstTime)
-// if(!firstTime) {
-//   // first time loaded!
-//   localStorage.setItem("first_time", 2);
-// }
-// console.log(firstTime)
-

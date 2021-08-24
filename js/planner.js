@@ -31,12 +31,10 @@ todoItemsList.addEventListener('click', function(event){
 }, false);
 
 todoForm.addEventListener('submit', function(event){
-  //event.preventDefault();
   addItem(todoInput.value, todoDate.value);
 });
 
 function addItem(item, dueDate){
-  //alert(priority.value);
   let colorValue; 
   if(priority.value === 'Exam'){
     colorValue = 'Exam';
@@ -65,11 +63,8 @@ function addItem(item, dueDate){
 }
 
 function renderItems(items){
-  // items.sort(function(a,b){
-  //   return new Date(a.date) - new Date(b.date);
-  // });
+
   todoItemsList.innerHTML = '';
-  //alert('test')
   for(let i = 0; i<items.length; i++){
     var checked = items[i].completed ? 'checked': null;
     const li = document.createElement('li');
@@ -177,17 +172,12 @@ todoItemsList.addEventListener("drop", ({target}) => {
   if((target.className == "item Exam" || target.className == "item HW" || target.className == "item Project") && target.id !== id) {
     let test = [...list];
     let second = test.indexOf(target)
-    //alert(index);
-    //alert(second);
     dragged.remove( dragged );
     for(let i = 0; i < list.length; i++) {
       if(list[i] === target){
         indexDrop = i;
       }
     }
-    // alert(index);
-    //alert(indexDrop);
-    //console.log(index, indexDrop);
     if(index > indexDrop) {
       target.before( dragged );
     } else {

@@ -1,4 +1,3 @@
-//window.localStorage.clear();
 const form = document.querySelector('.announce-form');
 // select the input box
 const announceInput = document.querySelector('.announcement');
@@ -11,7 +10,6 @@ let announceItems = [];
 
 clear2.addEventListener('click', function(event){
   if(event.target.classList.contains('sort-button-span2')){
-    //alert('test')
     announceItems.sort(function(a,b){
       return new Date(a.date) - new Date(b.date);
     });
@@ -51,11 +49,8 @@ function addAnnounce(item, dueDate){
 }
 
 function renderItems2(items){
-  // announceItems.sort(function(a,b){
-  //   return new Date(a.date) - new Date(b.date);
-  // });
+
   announceList.innerHTML = '';
-  //alert('test')
   for(let i = 0; i<items.length; i++){
     var checked = items[i].completed ? 'checked': null;
     
@@ -159,17 +154,12 @@ announceList.addEventListener("drop", ({target}) => {
   if(target.className == "item" && target.id !== id2) {
     let test2 = [...list2];
     let second2 = test2.indexOf(target)
-    //alert(index);
-    //alert(second);
     dragged2.remove( dragged2 );
     for(let i = 0; i < list2.length; i++) {
       if(list2[i] === target){
         indexDrop2 = i;
       }
     }
-    // alert(index);
-    //alert(indexDrop2);
-    //console.log(ind2ex, indexDrop2);
     if(index2 > indexDrop2) {
       target.before( dragged2 );
     } 
